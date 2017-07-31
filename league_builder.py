@@ -21,6 +21,7 @@ def separate():
         return experienced, fresh, players
 
 
+# checks how many experienced and non-experience team members are there
 def number_of_players():
     experienced, fresh, players = separate()
     players_experience = len(experienced)
@@ -29,6 +30,7 @@ def number_of_players():
     return players_experience, players_fresh
 
 
+# distributes the players per team
 def player_team():
     experienced, fresh, players = separate()
     sharks = []
@@ -55,6 +57,7 @@ def player_team():
     return sharks, dragons, raptors
 
 
+# prints the teams for the .txt file
 def print_teams():
     sharks, dragons, raptors = player_team()
 
@@ -76,6 +79,7 @@ def print_teams():
             file.write(row)
 
 
+# prints the letters for each guardian
 def print_letters():
     experienced, fresh, players = separate()
     sharks, dragons, raptors = player_team()
@@ -111,6 +115,7 @@ if __name__ == "__main__":
         start = input("Want to start? (Y/n) ").lower()
         if start == "y":
             players_experience, players_fresh = number_of_players()
+            # check for cases where players cannot be distributed equally
             if players_experience % 3 != 0:
                 print("you have {} experienced players. We can't split them equally by the 3 teams\n"
                       "Please talk with some friends, add them to your list!".format(players_experience))
